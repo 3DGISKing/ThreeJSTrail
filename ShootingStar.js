@@ -170,7 +170,6 @@ class ShootingStar {
                         }
 
                         void main() {
-                            // float progress = max(uProgress - random * delay, 0.);
                             float progress = clamp((timestamp - mouse.z) * speed, 0., 1.);
                             progress *= step(0., mouse.x);
 
@@ -192,7 +191,6 @@ class ShootingStar {
                             endPosition.z += cPosition.z * maxZ * (pixelRatio > 1. ? 1.2 : 1.);
 
                             float positionProgress = cubicOut(progress * random);
-                            // float positionProgress = cubicBezier(.29, .16, .3, 1., progress);
                             vec3 currentPosition = mix(startPosition, endPosition, positionProgress);
 
                             vProgress = progress;
@@ -212,7 +210,6 @@ class ShootingStar {
 
                 #define GLSLIFY 1
 
-                // uniform float uProgress;
                 uniform float fadeSpeed;
                 uniform float shortRangeFadeSpeed;
                 uniform float minFlashingSpeed;
